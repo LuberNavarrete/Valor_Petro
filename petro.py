@@ -12,11 +12,11 @@ def ValorPetro():
 	try:
 		res = requests.post(url,data = json.dumps(data), headers = headers)
 	except:
-		return "Error de Conexión"
+		return 0
 	else:
 		# Codigo http 200 = "success"
 		if res.status_code == 200:
 			res_json = res.json()
 			return res_json['data']['PTR']['BS']
 		else:
-			return ("Error, codigo respuesta http: "+str(res.status_code))
+			return 0
